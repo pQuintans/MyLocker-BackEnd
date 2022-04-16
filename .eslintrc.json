@@ -19,7 +19,11 @@
         "prettier"
     ],
     "rules": {
-        "indent": ["error", 2],
+        "indent": ["error", 2, {
+            "ignoredNodes": [
+                "PropertyDefinition"
+            ]
+        }],
         "linebreak-style": ["error", "windows"],
         "quotes": ["error", "single"],
         "semi": ["error", "never"],
