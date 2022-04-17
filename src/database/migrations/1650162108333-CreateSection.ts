@@ -1,42 +1,32 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateStudent1650125773770 implements MigrationInterface {
+export class CreateSection1650162108333 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'student',
+        name: 'section',
         columns: [
           {
-            name: 'ra',
-            type: 'varchar',
-            length: '20',
+            name: 'id',
+            type: 'integer',
             isPrimary: true,
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
-            name: 'first_name',
+            name: 'color',
+            type: 'varchar',
+            length: '10',
+          },
+          {
+            name: 'left_room',
             type: 'varchar',
             length: '20',
           },
           {
-            name: 'last_name',
+            name: 'right_room',
             type: 'varchar',
             length: '20',
-          },
-          {
-            name: 'email',
-            type: 'varchar',
-            length: '50',
-          },
-          {
-            name: 'password',
-            type: 'varchar',
-            isNullable: true,
-          },
-          {
-            name: 'code',
-            type: 'varchar',
-            length: '6',
-            isNullable: true,
           },
           {
             name: 'status',
@@ -49,6 +39,6 @@ export class CreateStudent1650125773770 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('student')
+    await queryRunner.dropTable('section')
   }
 }

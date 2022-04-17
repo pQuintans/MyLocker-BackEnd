@@ -1,15 +1,15 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateStudent1650125773770 implements MigrationInterface {
+export class CreateFunctionary1650162489225 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'student',
+        name: 'functionary',
         columns: [
           {
-            name: 'ra',
+            name: 'cpf',
             type: 'varchar',
-            length: '20',
+            length: '10',
             isPrimary: true,
           },
           {
@@ -30,13 +30,6 @@ export class CreateStudent1650125773770 implements MigrationInterface {
           {
             name: 'password',
             type: 'varchar',
-            isNullable: true,
-          },
-          {
-            name: 'code',
-            type: 'varchar',
-            length: '6',
-            isNullable: true,
           },
           {
             name: 'status',
@@ -49,6 +42,6 @@ export class CreateStudent1650125773770 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('student')
+    await queryRunner.dropTable('functionary')
   }
 }
