@@ -1,35 +1,32 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateFunctionary1650162489225 implements MigrationInterface {
+export class CreateSection1550162108333 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'functionary',
+        name: 'section',
         columns: [
           {
-            name: 'cpf',
+            name: 'id',
+            type: 'integer',
+            isPrimary: true,
+            isGenerated: true,
+            generationStrategy: 'increment',
+          },
+          {
+            name: 'color',
             type: 'varchar',
             length: '10',
-            isPrimary: true,
           },
           {
-            name: 'first_name',
+            name: 'left_room',
             type: 'varchar',
             length: '20',
           },
           {
-            name: 'last_name',
+            name: 'right_room',
             type: 'varchar',
             length: '20',
-          },
-          {
-            name: 'email',
-            type: 'varchar',
-            length: '50',
-          },
-          {
-            name: 'password',
-            type: 'varchar',
           },
           {
             name: 'status',
@@ -42,6 +39,6 @@ export class CreateFunctionary1650162489225 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('functionary')
+    await queryRunner.dropTable('section')
   }
 }

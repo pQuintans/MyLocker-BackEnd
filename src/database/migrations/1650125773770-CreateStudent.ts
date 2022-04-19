@@ -39,9 +39,24 @@ export class CreateStudent1650125773770 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'locker_number',
+            type: 'integer',
+            isNullable: true,
+          },
+          {
             name: 'status',
             type: 'tinyint',
             default: 1,
+          },
+        ],
+        foreignKeys: [
+          {
+            name: 'FKLockerNumberStudent',
+            referencedTableName: 'locker',
+            referencedColumnNames: ['number'],
+            columnNames: ['locker_number'],
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       })

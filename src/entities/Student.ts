@@ -1,6 +1,7 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToMany } from 'typeorm'
+import { Locker } from './Locker'
 
-@Entity('students')
+@Entity('student')
 export class Student {
   @PrimaryColumn()
   ra: string
@@ -19,6 +20,13 @@ export class Student {
 
   @Column()
   code: string
+
+  @Column()
+  locker_number: number
+
+  @JoinColumn({ name: 'locker_number' })
+  @ManyToMany(() => Locker)
+  lockerNumber: Locker
 
   @Column()
   status: number
