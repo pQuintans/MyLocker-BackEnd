@@ -1,14 +1,22 @@
 import 'reflect-metadata'
 import express, { NextFunction, Request, Response } from 'express'
 import 'express-async-errors'
+import cors from 'cors'
 
 import { router } from './routes'
 
 import './database'
 
+const allowedOrigins = ['http://localhost:3000']
+
+const options: cors.CorsOptions = {
+  origin: allowedOrigins,
+}
+
 const app = express()
 
 app.use(express.json())
+app.use(cors(options))
 app.use(router)
 
 app.use(
