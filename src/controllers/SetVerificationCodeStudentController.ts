@@ -3,15 +3,16 @@ import { Request, Response } from 'express'
 
 export class SetVerificationCodeStudentController {
   async handle(request: Request, response: Response) {
-    const { ra } = request.body
+    const { ra, email } = request.body
 
     const setVerificationCodeStudentService =
       new SetVerificationCodeStudentService()
 
-    const student = await setVerificationCodeStudentService.execute({
+    const code = await setVerificationCodeStudentService.execute({
       ra,
+      email,
     })
 
-    return response.json(student)
+    return response.json(code)
   }
 }
