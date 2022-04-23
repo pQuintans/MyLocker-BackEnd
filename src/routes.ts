@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { upload } from './multer/multer'
 
 import { CreateStudentController } from '@controllers/CreateStudentController'
 import { UpdateStudentPasswordController } from '@controllers/UpdateStudentPasswordController'
@@ -11,6 +12,7 @@ import { FindFunctionaryController } from '@controllers/FindFunctionaryControlle
 import { CreateSectionController } from '@controllers/CreateSectionController'
 import { CreateLockerController } from '@controllers/CreateLockerController'
 import { CreateApmController } from '@controllers/CreateApmController'
+import { SetProfilePictureStudentController } from '@controllers/SetProfilePictureStudentController'
 
 const router = Router()
 
@@ -25,6 +27,8 @@ const setVerificationCodeStudentController =
   new SetVerificationCodeStudentController()
 
 const updateStudentPasswordController = new UpdateStudentPasswordController()
+const setProfilePictureStudentController =
+  new SetProfilePictureStudentController()
 
 router.post('/students', createStudentController.handle)
 router.get('/students/:email', findStudentByEmailController.handle)
@@ -42,5 +46,11 @@ router.post('/sections', createSectionController.handle)
 router.post('/lockers', createLockerController.handle)
 
 router.post('/apms', createApmController.handle)
+
+router.post(
+  '/upload',
+  upload.single('profile'),
+  setProfilePictureStudentController.handle
+)
 
 export { router }

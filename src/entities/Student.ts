@@ -16,6 +16,9 @@ export class Student {
   email: string
 
   @Column()
+  profile_picture_url: string
+
+  @Column()
   password: string
 
   @Column()

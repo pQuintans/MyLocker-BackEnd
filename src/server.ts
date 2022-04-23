@@ -17,6 +17,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors(options))
+app.use('/profile-picture', express.static('upload/images'))
 app.use(router)
 
 app.use(
