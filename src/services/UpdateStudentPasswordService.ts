@@ -12,13 +12,13 @@ export class UpdateStudentPasswordService {
       throw new Error('Missing informations')
     }
 
-    const hashPasswords = await hash(password, 8)
+    const hashPassword = await hash(password, 8)
 
     const student = await studentsRepository.update(
       { ra },
-      { password: hashPasswords }
+      { password: hashPassword }
     )
 
-    return student
+    return { ...student, hashPassword }
   }
 }
