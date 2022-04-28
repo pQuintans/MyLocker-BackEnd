@@ -11,8 +11,8 @@
     "delete-dist": "if exist dist rmdir dist /q /s ",
     "clean": "npm run delete-dist && mkdir dist",
     "build-babel": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./dist/server.js"
+    "build": "npm install && npm run clean && npm run build-babel",
+    "start": "npm run build && node dist/server.js"
   },
   "author": "",
   "license": "ISC",
