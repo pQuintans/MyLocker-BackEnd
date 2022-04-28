@@ -3,19 +3,19 @@ import { Section } from './Section'
 
 @Entity('locker')
 export class Locker {
-  @PrimaryColumn()
+  @PrimaryColumn('int')
   number: number
 
-  @Column()
+  @Column('tinyint')
   is_rented: number
 
-  @Column()
+  @Column('int')
   section_id: number
 
   @JoinColumn({ name: 'section_id' })
   @ManyToOne(() => Section)
   sectionId: Section
 
-  @Column()
+  @Column('tinyint')
   status: number
 }

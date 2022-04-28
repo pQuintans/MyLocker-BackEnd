@@ -13,16 +13,16 @@ export class Apm {
   @PrimaryGeneratedColumn('increment')
   id: number
 
-  @Column()
+  @Column('tinyint')
   is_paid: number
 
-  @Column()
+  @Column('varchar')
   student_ra: string
 
   @JoinColumn({ name: 'student_ra' })
   @ManyToOne(() => Student)
   sectionId: Student
 
-  @Column()
+  @Column('tinyint')
   status: number
 }

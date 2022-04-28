@@ -2,21 +2,21 @@ import { PrimaryColumn, Column, Entity } from 'typeorm'
 
 @Entity('functionary')
 export class Functionary {
-  @PrimaryColumn()
+  @PrimaryColumn('varchar')
   cpf: string
 
-  @Column()
+  @Column('varchar')
   first_name: string
 
-  @Column()
+  @Column('varchar')
   last_name: string
 
-  @Column()
+  @Column('varchar')
   email: string
 
-  @Column()
+  @Column('varchar')
   password: string
 
-  @Column()
+  @Column('tinyint')
   status: number
 }

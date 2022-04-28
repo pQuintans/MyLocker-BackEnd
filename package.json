@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "if exist dist ( rmdir /s/q dist ) && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
     "test": "jest",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "typeorm-run-migrations": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -d src/database/data-source.ts",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "if exist dist ( rmdir /s/q dist ) && mkdir dist",
     "build-babel": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "build": "npm run clean && npm run build-babel",
     "start": "npm run build && node ./dist/server.js"

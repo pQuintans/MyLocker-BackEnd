@@ -9,6 +9,8 @@ import './database'
 
 const allowedOrigins = ['http://localhost:3000']
 
+const port = process.env.PORT || 3333
+
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
 }
@@ -35,4 +37,6 @@ app.use(
   }
 )
 
-app.listen(3333)
+console.log(port)
+
+app.listen(port)

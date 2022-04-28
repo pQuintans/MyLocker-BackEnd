@@ -5,15 +5,15 @@ export class Section {
   @PrimaryGeneratedColumn('increment')
   id: number
 
-  @Column()
+  @Column('varchar')
   color: string
 
-  @Column()
+  @Column('varchar')
   left_room: string
 
-  @Column()
+  @Column('varchar')
   right_room: string
 
-  @Column()
+  @Column('tinyint')
   status: number
 }

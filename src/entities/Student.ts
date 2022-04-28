@@ -3,34 +3,34 @@ import { Locker } from './Locker'
 
 @Entity('student')
 export class Student {
-  @PrimaryColumn()
+  @PrimaryColumn('varchar')
   ra: string
 
-  @Column()
+  @Column('varchar')
   first_name: string
 
-  @Column()
+  @Column('varchar')
   last_name: string
 
-  @Column()
+  @Column('varchar')
   email: string
 
-  @Column()
+  @Column('varchar')
   profile_picture_url: string
 
-  @Column()
+  @Column('varchar')
   password: string
 
-  @Column()
+  @Column('varchar')
   code: string
 
-  @Column()
+  @Column('int')
   locker_number: number
 
   @JoinColumn({ name: 'locker_number' })
   @ManyToMany(() => Locker)
   lockerNumber: Locker
 
-  @Column()
+  @Column('tinyint')
   status: number
 }
