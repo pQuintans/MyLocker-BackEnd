@@ -55,5 +55,8 @@
     "randomstring": "^1.2.2",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.6"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
