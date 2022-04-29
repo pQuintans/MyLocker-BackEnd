@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "if exist dist rmdir dist && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "(if exist dist (rmdir dist)) && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts",
     "test": "jest",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "typeorm-run-migrations": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -d src/database/data-source.ts",

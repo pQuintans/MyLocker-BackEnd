@@ -7,7 +7,10 @@ import { router } from './routes'
 
 import './database'
 
-const allowedOrigins = ['http://localhost:3000']
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://mylocker-web.herokuapp.com/',
+]
 
 const port = process.env.PORT || 3333
 
