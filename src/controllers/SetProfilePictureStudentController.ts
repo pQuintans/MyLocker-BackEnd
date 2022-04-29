@@ -1,6 +1,8 @@
 import { SetProfilePictureStudentService } from '@services/SetProfilePictureStudentService'
 import { Request, Response } from 'express'
 
+const url = 'https://mylocker-backend.herokuapp.com/'
+
 export class SetProfilePictureStudentController {
   async handle(request: Request, response: Response) {
     const { ra } = request.body
@@ -9,11 +11,11 @@ export class SetProfilePictureStudentController {
 
     const res = await setProfilePictureStudentService.execute(
       ra,
-      `http://localhost:3333/profile-picture/${request.file.filename}`
+      url + request.file.filename
     )
 
     return response.json({
-      profile_url: `http://localhost:3333/profile-picture/${request.file.filename}`,
+      profile_url: url + request.file.filename,
       res,
     })
   }

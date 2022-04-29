@@ -1,5 +1,5 @@
 node_modules
 dist
 .env
-upload/*
-!upload/.gitkeep
+# upload/*
+# !upload/.gitkeep
