@@ -1,7 +1,10 @@
 import { SetProfilePictureStudentService } from '@services/SetProfilePictureStudentService'
 import { Request, Response } from 'express'
+const development = process.env.NODE_ENV !== 'production'
 
-const url = 'https://mylocker-backend.herokuapp.com/'
+const url = development
+  ? 'http://localhost:3333/profile-picture/'
+  : 'https://mylocker-backend.herokuapp.com/profile-picture/'
 
 export class SetProfilePictureStudentController {
   async handle(request: Request, response: Response) {
