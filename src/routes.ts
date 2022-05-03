@@ -13,7 +13,7 @@ import { CreateSectionController } from '@controllers/CreateSectionController'
 import { CreateLockerController } from '@controllers/CreateLockerController'
 import { CreateApmController } from '@controllers/CreateApmController'
 import { SetProfilePictureStudentController } from '@controllers/SetProfilePictureStudentController'
-import { FindLockersController } from '@controllers/FindLockersService'
+import { ListLockersController } from '@controllers/ListLockersController'
 
 const router = Router()
 
@@ -21,7 +21,7 @@ const createStudentController = new CreateStudentController()
 const createFunctionaryController = new CreateFunctionaryController()
 const createSectionController = new CreateSectionController()
 const findFunctionaryController = new FindFunctionaryController()
-const findLockersController = new FindLockersController()
+const listLockersController = new ListLockersController()
 const createLockerController = new CreateLockerController()
 const createApmController = new CreateApmController()
 const findStudentByEmailController = new FindStudentByEmailController()
@@ -46,7 +46,7 @@ router.get('/functionaries/:cpf', findFunctionaryController.handle)
 router.post('/sections', createSectionController.handle)
 
 router.post('/lockers', createLockerController.handle)
-router.get('/lockers', findLockersController.handle)
+router.get('/lockers', listLockersController.handle)
 
 router.post('/apms', createApmController.handle)
 
