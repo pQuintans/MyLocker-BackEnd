@@ -6,6 +6,10 @@ interface EmailLoginRequest {
 
 export class FindStudentByEmailService {
   async execute({ email }: EmailLoginRequest) {
+    if (!email) {
+      throw new Error('Faltam informações')
+    }
+
     const student = await studentsRepository.findOne({
       where: {
         email: email,
@@ -13,7 +17,7 @@ export class FindStudentByEmailService {
     })
 
     if (!student) {
-      throw new Error('User does not exists')
+      throw new Error('Nenhum aluno com este RA encontrado')
     }
 
     return student

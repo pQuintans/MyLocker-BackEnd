@@ -9,7 +9,7 @@ interface ApmRequest {
 export class CreateApmService {
   async execute({ is_paid = 0, student_ra }: ApmRequest) {
     if (!student_ra) {
-      throw new Error('Missing informations')
+      throw new Error('Faltam informações')
     }
 
     const studentExists = await studentsRepository.findOne({
@@ -19,7 +19,7 @@ export class CreateApmService {
     })
 
     if (!studentExists) {
-      throw new Error('Student does not exist')
+      throw new Error('Nenhum aluno com este RA encontrado')
     }
 
     const studentAlreadyHasApmThisYear = await apmsRepository.findOne({
@@ -30,7 +30,7 @@ export class CreateApmService {
     })
 
     if (studentAlreadyHasApmThisYear) {
-      throw new Error('Student already contribute this year')
+      throw new Error('Aluno já contribuiu a APM este ano')
     }
 
     const apm = apmsRepository.create({

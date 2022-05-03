@@ -9,6 +9,10 @@ interface VerificationCodeRequest {
 
 export class SetVerificationCodeStudentService {
   async execute({ ra, email }: VerificationCodeRequest) {
+    if (!ra || !email) {
+      throw new Error('Faltam informações')
+    }
+
     const randomCode = randomstring.generate(6)
 
     await studentsRepository.update({ ra }, { code: randomCode })

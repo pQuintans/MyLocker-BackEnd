@@ -18,7 +18,7 @@ export class CreateFunctionaryService {
     password,
   }: FunctionaryRequest) {
     if (!cpf || !first_name || !last_name || !email || !password) {
-      throw new Error('Missing informations')
+      throw new Error('Faltam informações')
     }
 
     const functionaryAlreadyExists = await functionariesRepositores.findOne({
@@ -28,7 +28,7 @@ export class CreateFunctionaryService {
     })
 
     if (functionaryAlreadyExists) {
-      throw new Error('Funcionary already exists')
+      throw new Error('Um funcionário com este CPF já foi cadastrado')
     }
 
     const passwordHash = await hash(password, 8)

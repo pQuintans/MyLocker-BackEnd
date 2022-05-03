@@ -20,7 +20,7 @@ export class CreateStudentService {
     })
 
     if (studentAlreadyExists) {
-      throw new Error('Student already exists')
+      throw new Error('O aluno com este RA já foi cadastrado')
     }
 
     const student = studentsRepository.create({

@@ -9,7 +9,7 @@ interface StudentRequest {
 export class UpdateStudentPasswordService {
   async execute({ ra, password }: StudentRequest) {
     if (!ra || !password) {
-      throw new Error('Missing informations')
+      throw new Error('Faltam informações')
     }
 
     const hashPassword = await hash(password, 8)

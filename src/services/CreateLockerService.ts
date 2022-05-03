@@ -10,7 +10,7 @@ interface SectionRequest {
 export class CreateLockerService {
   async execute({ number, is_rented = 0, section_id }: SectionRequest) {
     if (!number || !section_id) {
-      throw new Error('Missing informations')
+      throw new Error('Faltam informações')
     }
 
     const lockerAlreadyExists = await lockersRepository.findOne({
@@ -20,7 +20,7 @@ export class CreateLockerService {
     })
 
     if (lockerAlreadyExists) {
-      throw new Error('Locker already exists')
+      throw new Error('Um armário com este número já foi cadastrado')
     }
 
     const sectionExists = await sectionsRepository.findOne({
